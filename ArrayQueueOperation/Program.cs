@@ -1,13 +1,13 @@
 ﻿class Queue()
 {
-    private int front;
+    
 
     public static (int[] Queue,int front,int end) Enque()
     {
         Console.WriteLine("enter limit value");
         int value = Convert.ToInt32(Console.ReadLine());
         int[] q = new int[value];
-        front = -1;
+        int front = -1;
         int end = -1;
 
         for (int i = 0; i < value; i++)
@@ -24,15 +24,9 @@
 
         Console.WriteLine("removed from array one elements are : ");
         
-        for (int i = f; i < q.Length; i++)
+        for (int i = f; i < e; i++)
         {
-
-            tempArray[i] = array[data];
-
-            Console.WriteLine(tempArray[i] + " ");
-            data++;
-
-
+            Console.WriteLine(q[f]);
         }
     }
 
@@ -45,12 +39,8 @@ class ArrayQueueOperation()
     public static void Main()
     {
         
-        Queue queue1 = new Queue();
-        Console.WriteLine("enter limit value");
-        int limit = Convert.ToInt32(Console.ReadLine());
-        int[] queue = new int[limit];
         var data = Queue.Enque();
-        DispalyQueueArray(queue);
+        //DispalyQueueArray(queue);
         Queue.Dequeue(data.Queue,data.front,data.end);
         
     }
