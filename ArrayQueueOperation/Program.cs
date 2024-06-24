@@ -6,7 +6,7 @@ public class Queue
     private int start;
     private int end;
     private int max;
-    private int temp = 0;
+    //private int temp = 0;
     
 
     public Queue(int size)
@@ -30,11 +30,9 @@ public class Queue
         queue[++end] = item;
         Console.WriteLine(queue[end]);
     }
-
+    
     public int? Dequeue()
     {
-        //int temp = end;
-        
         if (start > end)
         {
             Console.WriteLine("Queue is empty");
@@ -42,9 +40,7 @@ public class Queue
         }
         int number = queue[start];
         start++;
-        
         return number;
-        
     }
 }
 
@@ -56,17 +52,19 @@ public class ArrayQueueOperation()
         int size = Convert.ToInt32(Console.ReadLine());
         Queue queue = new Queue(size);
         queue.Enque(1);
-        queue.Enque(11);
-        queue.Enque(111);
-        queue.Enque(1111);
+        queue.Enque(10);
+        Console.WriteLine($"removed number is : {queue.Dequeue()}");
+        queue.Enque(17);
+        Console.WriteLine($"removed number is : {queue.Dequeue()}");
+        queue.Enque(14);
         queue.Enque(2);
-        queue.Enque(22);
-        queue.Enque(222);
-        queue.Enque(2222);
+        queue.Enque(3);
+        queue.Enque(12);
+        queue.Enque(32);
+        
+        Console.WriteLine($"removed number is : {queue.Dequeue()}");
+
         Console.WriteLine($"removed number is : {queue.Dequeue()}");
         Console.WriteLine($"removed number is : {queue.Dequeue()}");
-        Console.WriteLine($"removed number is : {queue.Dequeue()}");
-        //Console.WriteLine($"removed number is : {queue.Dequeue()}");
-        //Console.WriteLine($"removed number is : {queue.Dequeue()}");
     }
 }
