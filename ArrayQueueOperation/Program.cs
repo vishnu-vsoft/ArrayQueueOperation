@@ -1,59 +1,72 @@
-﻿class Queue()
+﻿
+
+public class Queue
 {
+    private int[] queue;
+    private int start;
+    private int end;
+    private int max;
+    private int temp = 0;
     
 
-    public static (int[] Queue,int front,int end) Enque()
-    {
-        Console.WriteLine("enter limit value");
-        int value = Convert.ToInt32(Console.ReadLine());
-        int[] q = new int[value];
-        int front = -1;
-        int end = -1;
-
-        for (int i = 0; i < value; i++)
-        {
-            end++;
-            q[i] = i;
-        }
-        front++;
-        return (q, front, end);
+    public Queue(int size)
+    { 
+        queue = new int[size];
+        start = 0;
+        end = -1;
+        max = size;  
     }
 
-    public static void Dequeue(int[] q,int f,int e)
+    public void Enque(int item)
     {
+        if (end == max - 1)
+        {
+            start = 0;
+            end = -1;
+            queue[++end] = item;
+            Console.WriteLine(queue[end]);
+            return;
+        }
+        queue[++end] = item;
+        Console.WriteLine(queue[end]);
+    }
 
-        Console.WriteLine("removed from array one elements are : ");
+    public int? Dequeue()
+    {
+        //int temp = end;
         
-        for (int i = f; i < e; i++)
+        if (start > end)
         {
-            Console.WriteLine(q[f]);
+            Console.WriteLine("Queue is empty");
+            return null;
         }
+        int number = queue[start];
+        start++;
+        
+        return number;
+        
     }
-
-
 }
 
-class ArrayQueueOperation()
+public class ArrayQueueOperation()
 {
-    
     public static void Main()
     {
-        
-        var data = Queue.Enque();
-        //DispalyQueueArray(queue);
-        Queue.Dequeue(data.Queue,data.front,data.end);
-        
+        Console.WriteLine("Enter size of queue");
+        int size = Convert.ToInt32(Console.ReadLine());
+        Queue queue = new Queue(size);
+        queue.Enque(1);
+        queue.Enque(11);
+        queue.Enque(111);
+        queue.Enque(1111);
+        queue.Enque(2);
+        queue.Enque(22);
+        queue.Enque(222);
+        queue.Enque(2222);
+        Console.WriteLine($"removed number is : {queue.Dequeue()}");
+        Console.WriteLine($"removed number is : {queue.Dequeue()}");
+        Console.WriteLine($"removed number is : {queue.Dequeue()}");
+        //Console.WriteLine($"removed number is : {queue.Dequeue()}");
+        //Console.WriteLine($"removed number is : {queue.Dequeue()}");
     }
-
-    public static void DispalyQueueArray(int[] queueArray)
-    {
-        Console.WriteLine("Queue is :");
-        for (int i = 0; i < queueArray.Length; i++)
-        {
-            Console.WriteLine(queueArray[i] + " ");
-        }
-    }
-
-
-
 }
