@@ -14,19 +14,12 @@ public class Queue
         queue = new int[size];
         start = 0;
         end = -1;
-        max = size;  
+        max = 10;  
     }
 
     public void Enque(int item)
     {
-        if (end == max - 1)
-        {
-            start = 0;
-            end = -1;
-            queue[++end] = item;
-            Console.WriteLine(queue[end]);
-            return;
-        }
+        
         queue[++end] = item;
         Console.WriteLine(queue[end]);
     }
@@ -42,6 +35,8 @@ public class Queue
         start++;
         return number;
     }
+
+    //method to make this queu cyclic without if conition by only using method
 }
 
 public class ArrayQueueOperation()
